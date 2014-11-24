@@ -1,0 +1,16 @@
+<div class='container'>
+	<%= render 'nav', locals: {user: @user} %>
+	<div class='userFormContainer'>
+		<h3 class='landingCaption'>Chicago Climber</h3>
+		<div id='signUp' class='row centered'>
+			<%= render 'users/form', locals: {user: @user} %>
+			<%= render 'modules/signup_button', locals: {user: @user} %>
+			<a href="#" id='showSignIn'><p class='text-center formLinks'>sign in</p></a>
+		</div>
+		<div id='signIn' class='row centered'>
+			<%= render 'sessions/form', locals: {user: @user} %>
+			<%= render 'modules/submit', locals: {user: @user} %>
+			<a href="#" id='showSignUp'><p class='text-center formLinks'>new? sign up!</p></a>
+		</div>
+	</div>
+</div>

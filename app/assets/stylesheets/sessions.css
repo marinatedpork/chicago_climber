@@ -1,0 +1,157 @@
+.signUpForm input {
+	display: block;
+}
+
+.signInForm input {
+	display: block;
+}
+
+input {
+  border: 2px solid #ccc;
+  -moz-box-shadow: 1px 1px 2px #666;
+  -webkit-box-shadow: 1px 1px 2px #666;
+  box-shadow: 1px 1px 2px #666;
+  font-size: 14px;
+  padding: 4px 5px;
+  outline: 0;
+  margin-bottom: 2px;
+  -webkit-appearance: none;
+  border-radius: 2px;
+}
+
+input:focus {
+  border-color: #FF9933;
+}
+
+.centered {
+  margin: 0 auto;
+}
+
+.userFormContainer {
+  float: none;
+  margin-top: 10%;
+  margin-bottom: 30%;
+  margin-left: 42%;
+  margin-right: 42%;
+  display: inline-block;
+  width: 210px;
+  height: 210px;
+  background: rgba(192,192,192, .6);
+  border-radius: 3px;
+  -moz-box-shadow: 1px 1px 2px #666;
+  -webkit-box-shadow: 1px 1px 2px #666;
+  box-shadow: 1px 1px 2px #666;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+.container {
+  background: url(http://i.imgur.com/qmKHlUD.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.transparent {
+  background: rgba(192,192,192, .0);
+  border: none;
+}
+
+.transluscent {
+  background: rgba(192,192,192, .6);
+  border: none;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.landingCaption {
+  font-size: 24px;
+  margin-left: 4px;
+  color: #363636;
+}
+
+a:link, a:visited {
+  color: #333333;
+}
+
+.submitButtonDiv {
+  display: inline-block;
+  width: 85px;
+  height: 30px;
+  padding-top: 4px;
+  background-color: #363636;
+  color: #d3d3d3;
+  cursor: pointer;
+  border-radius: 3px;
+  -moz-box-shadow: 1px 2px 2px #666;
+  -webkit-box-shadow: 1px 2px 2px #666;
+  box-shadow: 1px 2px 2px #666;
+  margin-top: 5px;
+  margin-left: 27%;
+}
+
+.signinText {
+  font-weight: bold;
+  vertical-align: center;
+  display: inline-block;
+}
+
+.formLinks {
+  margin-top: 8px;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.centerButtonText {
+  margin-left: 8px;
+}
+
+/*for spinning loading bar*/
+
+.loadingSpinner {
+    -webkit-animation: rotation 2s linear infinite;
+    -moz-animation: rotation 2s linear infinite;
+    -ms-animation: rotation 2s linear infinite;
+    font-size: 20px;
+    margin-right: 4px;
+    color: #FF9933;
+}
+
+@-webkit-keyframes rotation {
+    0%   { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+@-moz-keyframes rotation {
+    0%   { -moz-transform: rotate(0deg); }
+    100% { -moz-transform: rotate(360deg); }
+}
+@-ms-keyframes rotation {
+    0%   { -ms-transform: rotate(0deg); }
+    100% { -ms-transform: rotate(360deg); }
+}
+
+.neon-blue {
+  color: #00ffff;
+}
+
+.neon-orange {
+  color: #FF9933;
+}
+
+.fa-circle-thin {
+  margin-right: 4px;
+}
+
+.fullPage {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255, .0);
+}

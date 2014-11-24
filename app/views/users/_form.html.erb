@@ -1,0 +1,9 @@
+<div class='signUpForm'>
+	<%= form_for @user do |f| %>
+    <%= f.text_field :username, placeholder: "username" %>
+    <%= f.text_field :email, placeholder: "email" %>
+    <%= f.password_field :password, placeholder: "password" %>
+    <%= f.password_field :password_confirmation, placeholder: "confirm password" %>
+    <%= f.submit "climb on", class: 'hiddenSubmit' %>
+	<% end %>
+</div>
