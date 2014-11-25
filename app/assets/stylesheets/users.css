@@ -4,3 +4,77 @@
 	height: 350px;
 	margin-left: 135px;
 }
+
+#userRoutes {
+	margin-top: 15px;
+}
+
+.searchImage {
+	background: url(http://i.imgur.com/JRuAlZO.png) no-repeat 5px center;
+	background-size: contain;
+	display: inline-block;
+	width: 150px;
+	height: 150px;
+	margin-top: 12px;
+	margin-left: 20px;
+	/*opacity: 0.8;
+  filter: alpha(opacity=80);*/
+}
+
+.searchInput {
+	margin-left: 290px;
+	margin-top: 10px;
+}
+
+.searchImageWrapper {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	background: rgba(0, 203, 255, .7);
+	margin-left: 300px;
+	border-radius: 50%;
+  -moz-box-shadow: 1px 2px 3px #666;
+  -webkit-box-shadow: 1px 2px 3px #666;
+  box-shadow: 1px 2px 3px #666;
+}
+
+.searchBarHeader {
+	font-weight: bold;
+	text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 2px 0 #bbb, 0 3px 0 #b9b9b9, 0 4px 0 #aaa, 0 5px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.3), 0 2px 4px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+	font-size: 22px;
+	color: #292D30;
+}
+
+.searchButton {
+	background-color: #404040;
+	width: 45px;
+	height: 33px;
+	cursor: pointer;
+	-moz-box-shadow: 1px 1px 2px #666;
+  -webkit-box-shadow: 1px 1px 2px #666;
+  box-shadow: 1px 1px 2px #666;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+}
+
+.searchResults {
+	overflow: auto;
+	width: 500px;
+	height: 300px;
+	margin-top: 20px;
+  margin-left: 140px;
+  border-radius: 2px;
+	background-color: white;
+	opacity: .7
+  -moz-box-shadow: 1px 2px 3px #666;
+  -webkit-box-shadow: 1px 2px 3px #666;
+  box-shadow: 1px 2px 3px #666;
+  padding-left: 10px;
+}
+
+.fa-search {
+	padding-top: 8px;
+	margin-left: 13.5px; 
+	color: #C4C4C4;
+}
+

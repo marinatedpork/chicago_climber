@@ -1,3 +1,22 @@
 <div id='userRoutes'>
-	I am here! Please see me!
+	<div class='searchImageWrapper'>
+		<div class='searchImage'></div>
+	</div>
+	<h3 class='text-center searchBarHeader'>Let's look for rocks to climb, shall we?</h3>
+	<div class='searchBar'>
+		<%= form_tag search_path, :id => 'searchForm' do %>
+			<div class='inline-block searchInput'>
+				<%= text_field_tag 'search', nil,  placeholder: 'search routes', :class => 'searchBar' %>
+			</div>
+			<div class='inline-block  searchButton'>
+				<i class="fa fa-search"></i>
+			</div>
+			<div class='hidden'>
+			  <%= submit_tag 'search' %>
+		  </div>
+		<% end %>
+	</div>
+	<div class='inline-block searchResults'>
+		
+	</div>
 </div>

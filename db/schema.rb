@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141123185632) do
+ActiveRecord::Schema.define(version: 20141125013139) do
+
+  create_table "climbs", force: true do |t|
+    t.string   "name"
+    t.string   "category"
+    t.string   "rating"
+    t.integer  "integer_rating"
+    t.integer  "height"
+    t.integer  "pitches"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "climbs", ["category"], name: "index_climbs_on_category"
+  add_index "climbs", ["height"], name: "index_climbs_on_height"
+  add_index "climbs", ["integer_rating"], name: "index_climbs_on_integer_rating"
+  add_index "climbs", ["name"], name: "index_climbs_on_name"
+  add_index "climbs", ["pitches"], name: "index_climbs_on_pitches"
+  add_index "climbs", ["rating"], name: "index_climbs_on_rating"
 
   create_table "users", force: true do |t|
     t.string   "username"

@@ -82,17 +82,16 @@ $(document).ready(function(){
 
 // ajax for forms
 
-
   $('.submitButtonDiv').on('click', function(event){
 		$('.fa-circle-thin').hide();
 		$('.fa-spinner').show();
   	var form = $('form:visible'),
-  			url = form.attr('action'),
+  			url  = form.attr('action'),
 	  		data = form.serialize();
 	  $.post(url, data, function(serverResponse){
 				userShowSetup();
 				userFormContainer.html(serverResponse)
-				$('#userRoutes').hide();
+				$('#userFeed').hide();
 	  })
   })
 
