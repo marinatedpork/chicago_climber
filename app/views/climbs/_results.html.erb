@@ -1,12 +1,12 @@
 <ol>
-<% @routes.each do |route| %>
-	<li class='text-center'>
-		<p class='inline-block'><%= route.name %> </p>
-		<p class='inline-block'><%= route.category %> </p>
-		<p class='inline-block'><%= route.rating %> </p>
-		<p class='inline-block'><%= route.height %> </p>
-		<p class='inline-block'><%= route.pitches %> </p>
-		<a href="<%= route.url %>", target="_blank"><i class="fa fa-external-link"></i></a>
-	</li>
-<% end %>
+	<% @routes.each do |route| %>
+		<li class='text-center'>
+			<p class='inline-block'><%= route.name %> </p>
+			<p class='inline-block'><%= route.category %> </p>
+			<p class='inline-block'><%= route.rating %> </p>
+			<p class='inline-block'><%= route.height %> </p>
+			<p class='inline-block'><%= route.pitches %> </p>
+			<a href="<%= route.url %>", target="_blank"><i class="fa fa-external-link"></i></a>
+		</li>
+	<% end %>
 </ol>

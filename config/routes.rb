@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create]
   resources :users, except: [:index]
   post '/search' => 'climbs#search', as: 'search'
+  get '/climbs' => 'climbs#show'
 end

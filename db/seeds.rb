@@ -11,7 +11,7 @@ end
 
 def create_climb(row)
 	args = {name: row[0], category: row[1], rating: row[2], integer_rating: row[3], height: row[4], pitches: pitch_scrub(row[5]), url: row[6]}
-	Climb.create!(args)
+	p Climb.create!(args)
 end
 
 
