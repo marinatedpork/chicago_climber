@@ -9,6 +9,10 @@ class Climb < ActiveRecord::Base
 		return results.flatten.uniq
 	end
 
+	def to_s
+		"#{self.name} #{self.rating} #{self.height} #{self.pitches}"
+	end
+
 	private
 	def self.word_search(params)
 		results = []

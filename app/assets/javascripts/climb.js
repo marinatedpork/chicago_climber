@@ -5,6 +5,6 @@ $(document).ready(function(){
 	$.get('/climbs', function(serverResponse){
 		console.log(serverResponse)
 		routes = serverResponse
-	})
+	});
 
 });
