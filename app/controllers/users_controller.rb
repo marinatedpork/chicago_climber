@@ -11,6 +11,11 @@ class UsersController < ApplicationController
 	  end
 	end
 
+	def show
+		@user = current_user
+		render partial: 'show.html'
+	end
+
   private
 
 	def user_params

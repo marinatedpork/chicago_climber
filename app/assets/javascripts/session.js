@@ -1,30 +1,32 @@
 $(document).ready(function(){
 	$('.hiddenSubmit').hide();
-	$('#signUp').hide();
-	$('.fa-spinner').hide();
-	$('.fullPage').hide();
-
+	$(   '#signUp'   ).hide();
+	$( '.fa-spinner' ).hide();
+	$(  '.fullPage'  ).hide();
 	var userFormContainer = $('.userFormContainer');
-	var userShowBgUrl = 'http://i.imgur.com/EaHIwaG.jpg';
-	var navFadeIn = {'background': 'rgba(192,192,192, .6)'};
+	var userShowBgUrl     = 'http://i.imgur.com/EaHIwaG.jpg';
+	var navFadeIn         = {'background': 'rgba(192,192,192, .6)'};
+
+	var newNav = function(route, id, text) {
+		return '<li><a href="'+route+'" id="'+id+'">'+text+'</a></li>'
+	};
 
 	var fadeBackground = function (url) {
-		$('.fullPage').fadeIn(500);
+		$('.fullPage' ).fadeIn(500);
 		$('.container').css({'background': 'url('+url+') no-repeat center center fixed'}).delay(250);
-		$('.fullPage').fadeOut(500);
+		$('.fullPage' ).fadeOut(500);
 	};
 
 	var addUserNavBar = function(){
-		var navBar = $('.navbar-nav');
-		var newNav = function(id, text) {
-			return '<li><a href="/" id="'+id+'">'+text+'</a></li>'
-		};
-		var $feedNav = newNav('userFeedNav','feed')
-		var $routesNav = newNav('userRoutesNav', 'routes')
+		var navBar      = $('.navbar-nav');
+		var $feedNav    = newNav('/', 'userFeedNav','feed');
+		var $routesNav  = newNav('/', 'userRoutesNav', 'routes');
+		var $logoutNav  = newNav('/logout','userLogoutNav', 'logout');
 		navBar.empty();
 		$('nav div').removeClass('navbar-right')
 		navBar.append($feedNav);
 		navBar.append($routesNav);
+		navBar.append($logoutNav);
 	}
 
 	var userShowCss =	{ 
@@ -80,6 +82,21 @@ $(document).ready(function(){
   	$(".fa-circle-thin").trigger('mouseenter')
 	}, 5000);
 
+// ajax for sessions controlling
+
+	if ($('.currentUserTrue').show()) {
+		userShowSetup();
+		var div = $('div.currentUserTrue'),
+				user_id = div.attr('id'),
+				url = '/users/' + user_id;
+				console.log(user_id)
+				console.log(div)
+		$.get(url, function(serverResponse){
+			userFormContainer.html(serverResponse)
+			$('#userFeed').hide();
+		});
+	} else { console.log('fuck it') }
+
 // ajax for forms
 
   $('.submitButtonDiv').on('click', function(event){
@@ -89,10 +106,14 @@ $(document).ready(function(){
   			url  = form.attr('action'),
 	  		data = form.serialize();
 	  $.post(url, data, function(serverResponse){
-				userShowSetup();
-				userFormContainer.html(serverResponse)
-				$('#userFeed').hide();
-	  })
+	  	if (serverResponse.match(/class='signInError'/)) {
+  		  $(serverResponse).hide().appendTo('#errorMessageArea').fadeIn();
+        $('.disappear').delay( 2000 ).fadeOut();
+	  	} 
+			userShowSetup();
+			userFormContainer.html(serverResponse)
+			$('#userFeed').hide();
+	  });
   })
 
 });

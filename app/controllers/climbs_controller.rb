@@ -1,13 +1,13 @@
 class ClimbsController < ApplicationController
 
 	def search
-		@routes = Climb.search(climb_params[:search])
-  	render partial: 'results.html'
+		@routes = Climb.sub_query(climb_params[:search])
+		@routes.to_json
+  	render json: @routes
 	end
 
 	def show
-		@routes = Climb.all	
-		@routes.to_json
+		@routes = Climb.all.map(&:to_html).to_json	
 		render json: @routes
 	end
 

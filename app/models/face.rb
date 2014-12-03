@@ -1,0 +1,9 @@
+class Face < ActiveRecord::Base
+	belongs_to :state
+	belongs_to :area
+	belongs_to :subarea
+	belongs_to :crag
+	belongs_to :section
+	has_many   :walls
+	has_many   :climbs
+end
