@@ -1,2 +1,4 @@
 *sqlite3
 all_routes.json
+log/*.log
+tmp/**/*
