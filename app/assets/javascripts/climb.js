@@ -1,17 +1,27 @@
 $(document).ready(function(){
 
-	var searchBar = $('.searchBar');
+  var searchTable = $('#searchResults').DataTable();
+	var searchBar   = $('.searchBar');
 	var routes;
 
+
+	var configTable = function() {
+		$(".routeLine").draggable({
+	    helper: "clone"
+	  });
+	}
+
+
 	var parseRoutes = function(serverResponse) {
-		var routeString  = "<ol>";
+		var routeString  = "";
 		for (var i = 0; i < serverResponse.length; i++) {
     	var index = parseInt(serverResponse[i]);
     	routeString += routes[index - 1];
  		}
-		routeString += "</ol>";
+		// routeString += "</ol>";
 		return routeString;
 	}
+
 
 	$.get('/climbs', function(serverResponse){
 		routes = serverResponse
@@ -26,11 +36,14 @@ $(document).ready(function(){
 		var form = $('#searchForm'),
 				data = form.serialize(),
 				url = '/search',
-				appendArea = $('.searchResults');
+				appendArea = $('#searchResults tbody');
 		$.post(url, data, function(serverResponse){
 			parsedResults = parseRoutes(serverResponse);
 			appendArea.html(parsedResults);
+			configTable();
 		});
-	})
+	});
+
+
 
 });

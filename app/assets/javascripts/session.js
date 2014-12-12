@@ -55,7 +55,7 @@ $(document).ready(function(){
 	$('#showSignIn').on('click', function(){
 		$('#signUp').hide();
 		$('#signIn').fadeIn();
-		$('.userFormContainer').animate({height: '210px'}, 'fast')
+		$('.userFormContainer').animate({height: '225px'}, 'fast')
 	});
 	
 // glowing interval
@@ -84,36 +84,52 @@ $(document).ready(function(){
 
 // ajax for sessions controlling
 
-	if ($('.currentUserTrue').show()) {
-		userShowSetup();
-		var div = $('div.currentUserTrue'),
-				user_id = div.attr('id'),
-				url = '/users/' + user_id;
-				console.log(user_id)
-				console.log(div)
-		$.get(url, function(serverResponse){
-			userFormContainer.html(serverResponse)
-			$('#userFeed').hide();
-		});
-	} else { console.log('fuck it') }
 
-// ajax for forms
 
-  $('.submitButtonDiv').on('click', function(event){
+// signin form
+
+	$("#signInForm").on('submit', function(event){
+		event.preventDefault();
 		$('.fa-circle-thin').hide();
 		$('.fa-spinner').show();
   	var form = $('form:visible'),
   			url  = form.attr('action'),
 	  		data = form.serialize();
 	  $.post(url, data, function(serverResponse){
-	  	if (serverResponse.match(/class='signInError'/)) {
+	  	if (serverResponse.match(/class='signInError/)) {
   		  $(serverResponse).hide().appendTo('#errorMessageArea').fadeIn();
         $('.disappear').delay( 2000 ).fadeOut();
-	  	} 
-			userShowSetup();
-			userFormContainer.html(serverResponse)
-			$('#userFeed').hide();
-	  });
-  })
+	  	} else {
+				userShowSetup();
+				userFormContainer.html(serverResponse)
+				$('#userFeed').hide();
+			}
+		});
+	});
+
+	$("#new_user").on('submit', function(event){
+		event.preventDefault();
+		$('.fa-circle-thin').hide();
+		$('.fa-spinner').show();
+  	var form = $('form:visible'),
+  			url  = form.attr('action'),
+	  		data = form.serialize();
+	  $.post(url, data, function(serverResponse){
+	  	if (serverResponse.match(/class='signInError/)) {
+  		  $(serverResponse).hide().appendTo('#errorMessageArea').fadeIn();
+        $('.disappear').delay( 2000 ).fadeOut();
+	  	} else {
+				userShowSetup();
+				userFormContainer.html(serverResponse)
+				$('#userFeed').hide();
+			}
+		});
+	});
+
+// ajax for forms
+
+  $('.submitButtonDiv').on('click', function(event){
+			$('form:visible').submit();
+  });
 
 });

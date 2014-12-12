@@ -33,14 +33,14 @@ class Climb < ActiveRecord::Base
   end
 
   def to_html
-  	html_string = "<li>"
-  	html_string << "<p class='inline-block'>#{name}</p>"
-  	html_string << "<p class='inline-block'>#{category}</p>"
-  	html_string << "<p class='inline-block'>#{rating}</p>"
-  	html_string << "<p class='inline-block'>#{height}</p>"
-  	html_string << "<p class='inline-block'>#{pitches}</p>"
-  	html_string << "<a href='#{url}', target='_blank'><i class='fa fa-external-link'></i></a>"
-  	return html_string << "</li>"
+  	html_string = "<tr class='routeLine'>"
+  	html_string << "<td>#{name}</td>"
+  	html_string << "<td>#{category}</td>"
+  	html_string << "<td>#{rating}</td>"
+  	html_string << "<td>#{height}</td>"
+  	html_string << "<td>#{pitches}</td>"
+  	html_string << "<a href='#{url}', target='_blank'><i class='fa fa-external-link'></i></a></td>"
+  	return html_string << "</tr>"
   end
 
   def self.sub_query(string)
