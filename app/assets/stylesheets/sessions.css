@@ -35,7 +35,7 @@ input:focus {
   margin-right: 42%;
   display: inline-block;
   width: 210px;
-  height: 210px;
+  height: 225px;
   background: rgba(192,192,192, .6);
   border-radius: 3px;
   -moz-box-shadow: 1px 1px 2px #666;
@@ -158,4 +158,8 @@ a:link, a:visited {
 
 .hidden {
   display: none;
+}
+
+#errorMessageArea {
+  height: 25px;
 }

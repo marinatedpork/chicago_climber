@@ -1,6 +1,6 @@
 <div class='signInForm'>
 <div id="errorMessageArea"></div>
-  <%= form_tag sessions_path, role: "form" do %>
+  <%= form_tag sessions_path, id: "signInForm" do %>
     <%= text_field_tag :username, params[:username], :placeholder => "username" %>
     <%= password_field_tag :password, params[:password], :placeholder => "password" %>
     <%= submit_tag 'login', class: 'hiddenSubmit' %>
