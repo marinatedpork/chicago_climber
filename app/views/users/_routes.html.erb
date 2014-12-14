@@ -3,7 +3,7 @@
 		<div class='searchImage'></div>
 	</div>
 	<h3 class='text-center searchBarHeader'>Let's look for rocks to climb, shall we?</h3>
-	<div class='searchBar'>
+	<div class='searchBarContainer'>
 		<%= form_tag search_path, :id => 'searchForm' do %>
 			<div class='inline-block searchInput'>
 				<%= text_field_tag 'search', nil,  placeholder: 'search routes', :class => 'searchBar' %>
@@ -16,15 +16,13 @@
 		  </div>
 		<% end %>
 	</div>
-	<table id='searchResults' class='inline-block searchResults'>
-		<thead>
-			<td>name</td>
-			<td>type</td>
-			<td>rating</td>
-			<td>height</td>
-			<td>pitches</td>
-			<td>more info</td>
-		</thead>
-		<tbody></tbody>
-	</table>
+	<div class='interactiveContainer'>
+		<div id="tickList">
+			<p class='text-center'>tick list</p>
+			<ol class="tickList">
+			</ol>
+		</div>
+		<div class='inline-block searchResults'>
+		</div>
+	</div>
 </div>

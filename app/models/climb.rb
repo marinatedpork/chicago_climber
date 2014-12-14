@@ -6,6 +6,7 @@ class Climb < ActiveRecord::Base
 	belongs_to :section
 	belongs_to :face
   belongs_to :wall
+  has_and_belongs_to_many :tick_lists
   serialize  :tags, Array
 
   searchable do
@@ -33,14 +34,14 @@ class Climb < ActiveRecord::Base
   end
 
   def to_html
-  	html_string = "<tr class='routeLine'>"
-  	html_string << "<td>#{name}</td>"
-  	html_string << "<td>#{category}</td>"
-  	html_string << "<td>#{rating}</td>"
-  	html_string << "<td>#{height}</td>"
-  	html_string << "<td>#{pitches}</td>"
-  	html_string << "<a href='#{url}', target='_blank'><i class='fa fa-external-link'></i></a></td>"
-  	return html_string << "</tr>"
+  	html_string = "<li class='routeLine'>"
+  	html_string << "<p class='inline-block'>#{name}</p>"
+  	html_string << "<p class='inline-block'>#{category}</p>"
+  	html_string << "<p class='inline-block'>#{rating}</p>"
+  	html_string << "<p class='inline-block'>#{height}</p>"
+  	html_string << "<p class='inline-block'>#{pitches}</p>"
+  	html_string << "<p class='inline-block'><a href='#{url}', target='_blank'><i class='fa fa-external-link'></i></a></p>"
+  	return html_string << "</li>"
   end
 
   def self.sub_query(string)

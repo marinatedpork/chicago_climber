@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
 
 	def logout
 		reset_session
-		redirect_to :root
+		render nothing: true
 	end
 
 	private

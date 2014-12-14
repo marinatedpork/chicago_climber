@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141201002609) do
+ActiveRecord::Schema.define(version: 20141214071416) do
 
   create_table "areas", force: true do |t|
     t.string   "name"
@@ -54,6 +54,11 @@ ActiveRecord::Schema.define(version: 20141201002609) do
   add_index "climbs", ["subarea_id"], name: "index_climbs_on_subarea_id"
   add_index "climbs", ["tags"], name: "index_climbs_on_tags"
   add_index "climbs", ["wall_id"], name: "index_climbs_on_wall_id"
+
+  create_table "climbs_tick_lists", id: false, force: true do |t|
+    t.integer "climb_id"
+    t.integer "tick_list_id"
+  end
 
   create_table "crags", force: true do |t|
     t.string   "name"
@@ -100,6 +105,16 @@ ActiveRecord::Schema.define(version: 20141201002609) do
   end
 
   add_index "subareas", ["area_id"], name: "index_subareas_on_area_id"
+
+  create_table "tick_lists", force: true do |t|
+    t.string   "name"
+    t.integer  "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "tick_lists", ["user_id"], name: "index_tick_lists_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "username"

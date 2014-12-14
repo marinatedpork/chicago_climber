@@ -1,50 +1,53 @@
+var userShowBgUrl     = 'http://i.imgur.com/EaHIwaG.jpg';
+var navFadeIn         = {'background': 'rgba(192,192,192, .6)'};
+
+var newNav = function(route, id, text) {
+	return '<li><a href="'+route+'" id="'+id+'">'+text+'</a></li>'
+};
+
+var fadeBackground = function (url) {
+	$('.fullPage' ).fadeIn(500);
+	$('.container').css({'background': 'url('+url+') no-repeat center center fixed'}).delay(250);
+	$('.fullPage' ).fadeOut(500);
+};
+
+var addUserNavBar = function(){
+	var navBar      = $('.navbar-nav');
+	var $feedNav    = newNav('/', 'userFeedNav','feed');
+	var $routesNav  = newNav('/', 'userRoutesNav', 'routes');
+	var $logoutNav  = newNav('/logout','userLogoutNav', 'logout');
+	navBar.empty();
+	$('nav div').removeClass('navbar-right')
+	navBar.append($feedNav);
+	navBar.append($routesNav);
+	navBar.append($logoutNav);
+}
+
+var userShowCss =	{ 
+	width: '80%',
+	height: '650px',
+  'margin-top': '3%',
+  'margin-bottom': '10%',
+  'margin-left': '10%',
+  'margin-right': '10%'};
+
+var userShowSetup = function() {
+	$('.userFormContainer').children().fadeOut(200);
+	$('.userFormContainer').animate(userShowCss)
+	$('nav').addClass('transluscent', 500, 'easeInBack')
+	$('nav').removeClass('transparent')
+	fadeBackground(userShowBgUrl);
+	addUserNavBar();
+};
+
 $(document).ready(function(){
+
+	var userFormContainer = $('.userFormContainer');
+
 	$('.hiddenSubmit').hide();
 	$(   '#signUp'   ).hide();
 	$( '.fa-spinner' ).hide();
 	$(  '.fullPage'  ).hide();
-	var userFormContainer = $('.userFormContainer');
-	var userShowBgUrl     = 'http://i.imgur.com/EaHIwaG.jpg';
-	var navFadeIn         = {'background': 'rgba(192,192,192, .6)'};
-
-	var newNav = function(route, id, text) {
-		return '<li><a href="'+route+'" id="'+id+'">'+text+'</a></li>'
-	};
-
-	var fadeBackground = function (url) {
-		$('.fullPage' ).fadeIn(500);
-		$('.container').css({'background': 'url('+url+') no-repeat center center fixed'}).delay(250);
-		$('.fullPage' ).fadeOut(500);
-	};
-
-	var addUserNavBar = function(){
-		var navBar      = $('.navbar-nav');
-		var $feedNav    = newNav('/', 'userFeedNav','feed');
-		var $routesNav  = newNav('/', 'userRoutesNav', 'routes');
-		var $logoutNav  = newNav('/logout','userLogoutNav', 'logout');
-		navBar.empty();
-		$('nav div').removeClass('navbar-right')
-		navBar.append($feedNav);
-		navBar.append($routesNav);
-		navBar.append($logoutNav);
-	}
-
-	var userShowCss =	{ 
-		width: '800px',
-		height: '650px',
-	  'margin-top': '3%',
-	  'margin-bottom': '10%',
-	  'margin-left': '18%',
-	  'margin-right': '18%'};
-
-	var userShowSetup = function() {
-  	$('.userFormContainer').children().fadeOut(200);
-  	$('.userFormContainer').animate(userShowCss)
-  	$('nav').addClass('transluscent', 500, 'easeInBack')
-  	$('nav').removeClass('transparent')
-  	fadeBackground(userShowBgUrl);
-  	addUserNavBar();
-	};
 
 	$('#showSignUp').on('click', function(){
 		$('#signIn').hide();
@@ -81,10 +84,6 @@ $(document).ready(function(){
   window.setInterval(function(){
   	$(".fa-circle-thin").trigger('mouseenter')
 	}, 5000);
-
-// ajax for sessions controlling
-
-
 
 // signin form
 
@@ -125,8 +124,6 @@ $(document).ready(function(){
 			}
 		});
 	});
-
-// ajax for forms
 
   $('.submitButtonDiv').on('click', function(event){
 			$('form:visible').submit();
