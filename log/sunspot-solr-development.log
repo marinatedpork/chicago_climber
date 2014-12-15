@@ -1045,3 +1045,23 @@ Dec 14, 2014 8:15:03 PM org.apache.solr.core.SolrCore execute
 INFO: [development] webapp=/solr path=/select params={fl=*+score&start=0&q=death&qf=name_text+state_text+area_text+subarea_text+crag_text+section_text+face_text+wall_text&wt=ruby&fq=type:Climb&rows=1000&defType=edismax} hits=102 status=0 QTime=1 
 Dec 14, 2014 8:15:04 PM org.apache.solr.core.SolrCore execute
 INFO: [development] webapp=/solr path=/select params={fl=*+score&start=0&q=death&qf=name_text+state_text+area_text+subarea_text+crag_text+section_text+face_text+wall_text&wt=ruby&fq=type:Climb&rows=1000&defType=edismax} hits=102 status=0 QTime=1 
+Dec 14, 2014 10:16:34 PM org.apache.solr.core.SolrCore execute
+INFO: [development] webapp=/solr path=/select params={fl=*+score&start=0&q=dw&qf=name_text+state_text+area_text+subarea_text+crag_text+section_text+face_text+wall_text&wt=ruby&fq=type:Climb&rows=1000&defType=edismax} hits=29 status=0 QTime=5 
+Dec 14, 2014 10:16:34 PM org.apache.solr.core.SolrCore execute
+INFO: [development] webapp=/solr path=/select params={fl=*+score&start=0&q=dw&qf=name_text+state_text+area_text+subarea_text+crag_text+section_text+face_text+wall_text&wt=ruby&fq=type:Climb&rows=1000&defType=edismax} hits=29 status=0 QTime=1 
+Dec 14, 2014 10:16:42 PM org.apache.solr.core.SolrCore execute
+INFO: [development] webapp=/solr path=/select params={fl=*+score&start=0&q=d&qf=name_text+state_text+area_text+subarea_text+crag_text+section_text+face_text+wall_text&wt=ruby&fq=type:Climb&rows=1000&defType=edismax} hits=42 status=0 QTime=1 
+Dec 14, 2014 10:16:42 PM org.apache.solr.core.SolrCore execute
+INFO: [development] webapp=/solr path=/select params={start=0&q=*:*&wt=ruby&fq=type:Climb&rows=1000} hits=54069 status=0 QTime=1 
+Dec 14, 2014 10:16:43 PM org.apache.solr.core.SolrCore execute
+INFO: [development] webapp=/solr path=/select params={start=0&q=*:*&wt=ruby&fq=type:Climb&rows=1000} hits=54069 status=0 QTime=1 
+Dec 14, 2014 10:16:43 PM org.apache.solr.core.SolrCore execute
+INFO: [development] webapp=/solr path=/select params={start=0&q=*:*&wt=ruby&fq=type:Climb&rows=1000} hits=54069 status=0 QTime=2 
+Dec 14, 2014 10:16:43 PM org.apache.solr.core.SolrCore execute
+INFO: [development] webapp=/solr path=/select params={start=0&q=*:*&wt=ruby&fq=type:Climb&rows=1000} hits=54069 status=0 QTime=2 
+Dec 14, 2014 10:16:45 PM org.apache.solr.core.SolrCore execute
+INFO: [development] webapp=/solr path=/select params={fl=*+score&start=0&q=1&qf=name_text+state_text+area_text+subarea_text+crag_text+section_text+face_text+wall_text&wt=ruby&fq=type:Climb&rows=1000&defType=edismax} hits=202 status=0 QTime=3 
+Dec 14, 2014 10:19:10 PM org.apache.solr.core.SolrCore execute
+INFO: [development] webapp=/solr path=/select params={fl=*+score&start=0&q=1&qf=name_text+state_text+area_text+subarea_text+crag_text+section_text+face_text+wall_text&wt=ruby&fq=type:Climb&rows=1000&defType=edismax} hits=202 status=0 QTime=3 
+Dec 14, 2014 10:21:05 PM org.apache.solr.core.SolrCore execute
+INFO: [development] webapp=/solr path=/select params={fl=*+score&start=0&q=1&qf=name_text+state_text+area_text+subarea_text+crag_text+section_text+face_text+wall_text&wt=ruby&fq=type:Climb&rows=1000&defType=edismax} hits=202 status=0 QTime=3 

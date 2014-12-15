@@ -1,14 +1,15 @@
 <div id="tickList">
-	<%= render "tick_lists/drop_down" %>
-	<i id="createTickList"class="fa fa-plus-circle pointer"></i>
-	<div id="createForm">
-		<%= text_field_tag 'name', nil,  placeholder: 'name', :class => "tickListInput" %>
-		<div id="submitList"class='inline-block searchButton'>
-			<i class="fa fa-plus-square"></i>
-		</div>
+	<div class="tickListLine center">
+		<%= render "tick_lists/drop_down" %>
+		<i id="createTickList" class="fa fa-plus-circle pointer"></i>
+	</div>
+		<div id="createForm">
+			<%= text_field_tag 'name', nil,  placeholder: 'name', :class => "tickListInput" %>
+			<div id="submitList"class='inline-block searchButton'>
+				<i class="fa fa-plus-square"></i>
+			</div>
 	</div>
 	<div id="tickListContainer">
-		
 	</div>
 </div>
 

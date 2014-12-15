@@ -4,9 +4,13 @@
 	</div>
 	<h3 class='text-center searchBarHeader'>Let's look for rocks to climb, shall we?</h3>
 	<%= render 'climbs/search', locals: {user: @user} %>
-	<div class='interactiveContainer'>
-		<%= render 'tick_lists/sidebox', locals: {user: @user} %>
-		<div class='inline-block searchResults'>
+	<div class='table'>
+		<div class='table-cell float-left'>
+			<%= render 'tick_lists/sidebox', locals: {user: @user} %>
+		</div>
+		<div class='table-cell float-right'>
+			<div class='inline-block searchResults'>
+			</div>
 		</div>
 	</div>
 </div>

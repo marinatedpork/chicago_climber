@@ -13,7 +13,11 @@ $(document).ready(function(){
 		return routeString;
 	}
 
-	$.get('/climbs', function(serverResponse){
+	// $.get('/climbs', function(serverResponse){
+	// 	routes = serverResponse
+	// });
+
+	$.get('/climbs_test', function(serverResponse){
 		routes = serverResponse
 	});
 

@@ -57,10 +57,11 @@
 
 .searchResults {
 	overflow: auto;
-	width: 500px;
+	width: 515px;
 	height: 300px;
-	margin-top: 20px;
+  margin-top: 20px;
   margin-left: 10px;
+  margin-right: 30px;
   border-radius: 2px;
 	background-color: white;
 	opacity: .7
@@ -78,4 +79,27 @@
 
 .pointer {
 	cursor: pointer;
+}
+
+.fixed {
+	position: fixed;
+}
+
+.table {
+	display: table;
+  height: 490px;
+  width: 100%;
+}
+
+.table-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.float-right {
+	float: right;
+}
+
+.float-left {
+	float: left;
 }
