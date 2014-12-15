@@ -13,6 +13,6 @@ class ClimbsController < ApplicationController
 
 	private
 	def climb_params
-		params.permit(:search)
+		params.permit(:search, :utf8, :authenticity_token)
 	end
 end

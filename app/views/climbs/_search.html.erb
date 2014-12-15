@@ -1,0 +1,13 @@
+<div class='searchBarContainer'>
+	<%= form_tag search_path, :id => 'searchForm' do %>
+		<div class='inline-block searchInput'>
+			<%= text_field_tag 'search', nil,  placeholder: 'search routes', :class => 'searchBar' %>
+		</div>
+		<div class='inline-block  searchButton'>
+			<i class="fa fa-search"></i>
+		</div>
+		<div class='hidden'>
+		  <%= submit_tag 'search' %>
+	  </div>
+	<% end %>
+</div>

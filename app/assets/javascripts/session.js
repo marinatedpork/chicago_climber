@@ -102,6 +102,7 @@ $(document).ready(function(){
 				userShowSetup();
 				userFormContainer.html(serverResponse)
 				$('#userFeed').hide();
+				$("#createForm").hide();
 			}
 		});
 	});
@@ -121,6 +122,7 @@ $(document).ready(function(){
 				userShowSetup();
 				userFormContainer.html(serverResponse)
 				$('#userFeed').hide();
+				$("#createForm").hide();
 			}
 		});
 	});

@@ -1,0 +1,6 @@
+<h4 data-url='/users/<%= @tick_list.user.id %>/tick_lists/<%= @tick_list.id %>/add_climb'><%= @tick_list.name %></h4>
+<ol>
+	<% @tick_list.climbs.each do |climb| %>
+		<%= climb.to_html.html_safe %>
+	<% end %> 
+</ol>

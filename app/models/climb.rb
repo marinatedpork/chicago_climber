@@ -1,12 +1,12 @@
 class Climb < ActiveRecord::Base
-	belongs_to :state
-	belongs_to :area
-	belongs_to :subarea
-	belongs_to :crag
-	belongs_to :section
-	belongs_to :face
-  belongs_to :wall
   has_and_belongs_to_many :tick_lists
+  belongs_to :state
+  belongs_to :area
+  belongs_to :subarea
+  belongs_to :crag
+  belongs_to :section
+  belongs_to :face
+  belongs_to :wall
   serialize  :tags, Array
 
   searchable do
@@ -28,13 +28,16 @@ class Climb < ActiveRecord::Base
   	text :section do
       section.name  unless section.nil?
     end
+    text :face do
+      face.name  unless face.nil?
+    end
   	text :wall do
-      section.name  unless wall.nil?
+      wall.name  unless wall.nil?
     end
   end
 
   def to_html
-  	html_string = "<li class='routeLine'>"
+  	html_string = "<li data-id='#{id}' class='routeLine'>"
   	html_string << "<p class='inline-block'>#{name}</p>"
   	html_string << "<p class='inline-block'>#{category}</p>"
   	html_string << "<p class='inline-block'>#{rating}</p>"
