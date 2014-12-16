@@ -10,7 +10,11 @@ $(document).ready(function(){
 			$('#userFeed').hide();
 			$("#createForm").hide();
 		});
-	}
+	};
+
+	$.get('/climbs', function(serverResponse){
+		routes = serverResponse
+	});
 
 	$("body").on("click", "#userLogoutNav", function(event) {
 		event.preventDefault();

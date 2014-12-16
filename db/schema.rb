@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141214071416) do
+ActiveRecord::Schema.define(version: 20141216044855) do
 
   create_table "areas", force: true do |t|
     t.string   "name"
@@ -58,6 +58,12 @@ ActiveRecord::Schema.define(version: 20141214071416) do
   create_table "climbs_tick_lists", id: false, force: true do |t|
     t.integer "climb_id"
     t.integer "tick_list_id"
+  end
+
+  create_table "content_strings", force: true do |t|
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "crags", force: true do |t|

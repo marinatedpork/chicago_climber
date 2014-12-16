@@ -1,5 +1,5 @@
-var userShowBgUrl     = 'http://i.imgur.com/EaHIwaG.jpg';
-var navFadeIn         = {'background': 'rgba(192,192,192, .6)'};
+var userShowBgUrl = 'http://i.imgur.com/EaHIwaG.jpg';
+var navFadeIn     = {'background': 'rgba(192,192,192, .6)'};
 
 var newNav = function(route, id, text) {
 	return '<li><a href="'+route+'" id="'+id+'">'+text+'</a></li>'
@@ -17,24 +17,25 @@ var addUserNavBar = function(){
 	var $routesNav  = newNav('/', 'userRoutesNav', 'routes');
 	var $logoutNav  = newNav('/logout','userLogoutNav', 'logout');
 	navBar.empty();
-	$('nav div').removeClass('navbar-right')
+	$('nav div').removeClass('navbar-right');
 	navBar.append($feedNav);
 	navBar.append($routesNav);
 	navBar.append($logoutNav);
-}
+};
 
 var userShowCss =	{ 
 	width: '80%',
-	height: '650px',
+  height: '650px',
   'margin-top': '3%',
   'margin-bottom': '10%',
   'margin-left': '10%',
-  'margin-right': '10%'};
+  'margin-right': '10%'
+};
 
 var userShowSetup = function() {
 	$('.userFormContainer').children().fadeOut(200);
-	$('.userFormContainer').animate(userShowCss)
-	$('nav').addClass('transluscent', 500, 'easeInBack')
+	$('.userFormContainer').animate(userShowCss);
+	$('nav').addClass('transluscent', 500, 'easeInBack');
 	$('nav').removeClass('transparent')
 	fadeBackground(userShowBgUrl);
 	addUserNavBar();

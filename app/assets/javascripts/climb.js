@@ -1,7 +1,8 @@
+var routes;
+
 $(document).ready(function(){
 
 	var searchBar = $('.searchBar');
-	var routes;
 	
 	var parseRoutes = function(serverResponse) {
 		var routeString  = "<ol>";
@@ -13,13 +14,9 @@ $(document).ready(function(){
 		return routeString;
 	}
 
-	// $.get('/climbs', function(serverResponse){
+	// $.get('/climbs_test', function(serverResponse){
 	// 	routes = serverResponse
 	// });
-
-	$.get('/climbs_test', function(serverResponse){
-		routes = serverResponse
-	});
 
 	$('.container').delegate('.searchBar', 'keyup', function(event){
 			$('#searchForm').submit();
