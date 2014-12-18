@@ -6,9 +6,7 @@ var newNav = function(route, id, text) {
 };
 
 var fadeBackground = function (url) {
-	$('.fullPage' ).fadeIn(500);
-	$('.container').css({'background': 'url('+url+') no-repeat center center fixed'}).delay(250);
-	$('.fullPage' ).fadeOut(500);
+	$('.container').css({'background': 'url('+url+') no-repeat center center'}).delay(1000);
 };
 
 var addUserNavBar = function(){
@@ -26,7 +24,7 @@ var addUserNavBar = function(){
 var userShowCss =	{ 
 	width: '80%',
   height: '650px',
-  'margin-top': '3%',
+  'margin-top': '10px',
   'margin-bottom': '10%',
   'margin-left': '10%',
   'margin-right': '10%'
@@ -39,6 +37,7 @@ var userShowSetup = function() {
 	$('nav').removeClass('transparent')
 	fadeBackground(userShowBgUrl);
 	addUserNavBar();
+  $('nav').addClass('box-shadow');
 };
 
 $(document).ready(function(){
@@ -61,7 +60,7 @@ $(document).ready(function(){
 		$('#signIn').fadeIn();
 		$('.userFormContainer').animate({height: '225px'}, 'fast')
 	});
-	
+
 // glowing interval
 
   $('.loadingSpinner').addGlow({
@@ -101,7 +100,8 @@ $(document).ready(function(){
         $('.disappear').delay( 2000 ).fadeOut();
 	  	} else {
 				userShowSetup();
-				userFormContainer.html(serverResponse)
+				userFormContainer.empty();
+				$(serverResponse).hide().appendTo(userFormContainer).delay(1000).fadeIn(1500);
 				$('#userFeed').hide();
 				$("#createForm").hide();
 			}
@@ -121,7 +121,8 @@ $(document).ready(function(){
         $('.disappear').delay( 2000 ).fadeOut();
 	  	} else {
 				userShowSetup();
-				userFormContainer.html(serverResponse)
+				userFormContainer.empty();
+				$(serverResponse).hide().appendTo(userFormContainer).delay(1000).fadeIn(1500);
 				$('#userFeed').hide();
 				$("#createForm").hide();
 			}

@@ -1,16 +1,21 @@
-<select id="tickListDropDown">
-	<option value="default" class="inline-block">
-		Tick Lists
-	</option>	
-	<% if current_user.tick_lists.empty? %>
-		<option class="noTicKListDropDown">
-			You have no tick lists, dude!
-		</option>
-	<% else %>
-		<% current_user.tick_lists.each do |tick_list| %>
-			<option class="tickListOption" data-url="<%= user_tick_list_path(current_user, tick_list) %>">
-				<%= tick_list.name %>
-			</option>
-		<% end %>
-	<% end %>
-</select>
+<div id="tickListDropDown" class="dropdown inline-block">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+    Tick Lists
+    <span class="caret"></span>
+  </button>
+  <ul id="dropDownMenu"class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <% if current_user.tick_lists.empty? %>
+      <li role="presentation" class="noTicKListDropDown">
+        You have no tick lists, dude!
+      </li>
+    <% else %>
+      <% current_user.tick_lists.each do |tick_list| %>
+        <li role="presentation" class="tickListOption" data-url="<%= user_tick_list_path(current_user, tick_list) %>">
+          <%= tick_list.name %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+
+

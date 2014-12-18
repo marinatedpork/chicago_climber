@@ -1,15 +1,19 @@
 #tickList {
+	margin-top: 10px;
+	margin-left: 20px;
+  border-radius: 2px;
+}
+
+#tickListContainer {
 	overflow: auto;
 	display: inline-block;
 	width: 250px;
 	height: 300px;
-  margin-top: 20px;
-	margin-left: 20px;
-  border-radius: 2px;
 	background-color: white;
   -moz-box-shadow: 1px 2px 3px #666;
   -webkit-box-shadow: 1px 2px 3px #666;
   box-shadow: 1px 2px 3px #666;
+  border-radius: 2px;
 }
 
 .tickList {
@@ -28,6 +32,7 @@
 	width: 140px;
 	display: block;
 	margin:  0px auto;
+	margin-bottom: 20px;
 }
 
 #tickListDropDown {

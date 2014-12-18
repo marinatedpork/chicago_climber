@@ -24,7 +24,7 @@ input:focus {
 }
 
 .centered {
-  margin: 0 auto;
+  margin: 0px auto;
 }
 
 .userFormContainer {
@@ -53,6 +53,7 @@ input:focus {
   background-size: cover;
   height: 100%;
   width: 100%;
+  transition: background 2s linear;
 }
 
 .transparent {
@@ -153,7 +154,8 @@ a:link, a:visited {
     min-height: 100%;
     top: 0;
     left: 0;
-    background-color: rgb(255, 255, 255, .0);
+    background-color: white;
+    z-index: 100;
 }
 
 .hidden {

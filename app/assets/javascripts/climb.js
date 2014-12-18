@@ -14,10 +14,6 @@ $(document).ready(function(){
 		return routeString;
 	}
 
-	// $.get('/climbs_test', function(serverResponse){
-	// 	routes = serverResponse
-	// });
-
 	$('.container').delegate('.searchBar', 'keyup', function(event){
 			$('#searchForm').submit();
 	});
@@ -34,7 +30,5 @@ $(document).ready(function(){
 			configTable();
 		});
 	});
-
-
 
 });

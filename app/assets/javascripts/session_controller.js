@@ -6,7 +6,8 @@ $(document).ready(function(){
 		var url = $("#session_user").attr("class");
 		$.get(url, function(serverResponse){
 			userShowSetup();
-			userFormContainer.html(serverResponse)
+			userFormContainer.empty();
+			$(serverResponse).hide().appendTo(userFormContainer).delay(1000).fadeIn(1500)
 			$('#userFeed').hide();
 			$("#createForm").hide();
 		});
