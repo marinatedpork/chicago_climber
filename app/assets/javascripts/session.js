@@ -104,6 +104,7 @@ $(document).ready(function(){
 				$(serverResponse).hide().appendTo(userFormContainer).delay(1000).fadeIn(1500);
 				$('#userFeed').hide();
 				$("#createForm").hide();
+				$(".fa-check-square").hide();
 			}
 		});
 	});
@@ -125,6 +126,7 @@ $(document).ready(function(){
 				$(serverResponse).hide().appendTo(userFormContainer).delay(1000).fadeIn(1500);
 				$('#userFeed').hide();
 				$("#createForm").hide();
+				$(".fa-check-square").hide();
 			}
 		});
 	});

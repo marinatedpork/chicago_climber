@@ -1,21 +1,26 @@
 <div id="tickListDropDown" class="dropdown inline-block">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+  <button id="dropDownButton" class="btn btn-default dropdown-toggle float-left" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
     Tick Lists
     <span class="caret"></span>
   </button>
   <ul id="dropDownMenu"class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
     <% if current_user.tick_lists.empty? %>
-      <li role="presentation" class="noTicKListDropDown">
+      <li role="presentation" class="noTicKListDropDown pointer">
         You have no tick lists, dude!
       </li>
     <% else %>
       <% current_user.tick_lists.each do |tick_list| %>
-        <li role="presentation" class="tickListOption" data-url="<%= user_tick_list_path(current_user, tick_list) %>">
+        <li role="presentation" class="tickListOption pointer" data-url="<%= user_tick_list_path(current_user, tick_list) %>">
           <%= tick_list.name %>
         </li>
       <% end %>
     <% end %>
   </ul>
 </div>
-
-
+<div id="createForm" class="inline-block float-left">
+  <%= text_field_tag 'name', nil,  placeholder: 'tick list name', :class => "tickListInput" %>
+</div>
+<div id="createTickList" class="inline-block buttonContainer pointer">
+  <i class="fa fa-plus-circle fa-3x green float-right"></i>
+  <i class="fa fa-check-square fa-3x green float-right"></i>
+</div>

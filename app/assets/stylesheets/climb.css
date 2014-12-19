@@ -1,6 +1,11 @@
 .routeLine {
 	background-color: white;
 	cursor: pointer;
+	transition: color .2s ease-out, background .5s ease-in;
+	transition-property: color, background;
+	transition-duration: 0.2s, 0.5s;
+	transition-timing-function: ease-out, ease-in;
+	transition-delay: initial, initial;
 }
 
 .routeLine p:nth-child(even) {
