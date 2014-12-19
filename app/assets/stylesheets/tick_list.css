@@ -14,6 +14,8 @@
   -webkit-box-shadow: 1px 2px 3px #666;
   box-shadow: 1px 2px 3px #666;
   border-radius: 2px;
+  /*transition: background .2s linear;*/
+  /*transition-delay: .3s;*/
 }
 
 #tickListContainer li {
@@ -150,3 +152,17 @@
 	color: white;
 }
 
+.dropZoneContainer .routeLine {
+	transition:opacity .4s ease-out;
+	-o-transition:opacity .4s ease-out;
+	-ms-transition:opacity .4s ease-out;
+	-moz-transition:opacity .4s ease-out;
+	-webkit-transition:opacity .4s ease-out;
+	opacity: 0;
+}
+
+.dropZoneContainer #tickListContainer {
+	background: url(http://i.imgur.com/KzpC08N.png) no-repeat center center;
+	background-size: 55px 70px;
+	background-color: white;
+}
