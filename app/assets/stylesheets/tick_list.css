@@ -25,9 +25,10 @@
 }
 
 .tickListInput {
+	display: inline-block;
 	margin-left: 7px;
 	width: 160px;
-	height: 30px;
+	height: 40px;
 }
 
 #submitList {
@@ -35,14 +36,14 @@
 }
 
 .tickListLine {
-	width: 240px;
+	width: 260px;
 	height: 50px;
 	display: block;
 	margin-bottom: 15px;
 }
 
 #dropDownButton {
-	width: 184px;
+	width: 162px;
 	margin-left: 7px;
 	font-weight: bold;
 	height: 50px;
@@ -52,20 +53,57 @@
 	color: white;
 	letter-spacing: 3px;
 	border: 1px solid #ccc;
+	transition:box-shadow .2s ease-out, background .2s ease-in;
+	-o-transition:box-shadow .2s ease-out, background .2s ease-in;
+  -ms-transition:box-shadow .2s ease-out, background .2s ease-in;
+  -moz-transition:box-shadow .2s ease-out, background .2s ease-in;
+  -webkit-transition:box-shadow .2s ease-out, background .2s ease-in;
+}
+
+#dropDownButton:hover {
+	box-shadow: 1px 8px 10px #666;
+	background-color: black;
+}
+
+#dropDownMenu {
+	margin-left: 7px;
 }
 
 #tickListDropDown {
 	margin-bottom: 5px;
 }
 
-.green {
-	color: #46B525 !important;
+.buttonContainer i {
+	transition: text-shadow .4s ease-out, color .4s ease-in;
+	-o-transition: text-shadow .4s ease-out, color .4s ease-in;
+  -ms-transition: text-shadow .4s ease-out, color .4s ease-in;
+  -moz-transition: text-shadow .4s ease-out, color .4s ease-in;
+  -webkit-transition: text-shadow .4s ease-out, color .4s ease-in;
+}
+
+#createTickList {
+	padding-right: 30px;
+}
+
+#createTickList:hover, #confirmTickList:hover {
+	text-shadow: 2px 3px 5px gray;
+	color: #00E300 !important;
+}
+
+#cancelTickList:hover {
+	text-shadow: 2px 3px 5px gray;
+	color: #F51500 !important;
+}
+
+
+#confirmTickList {
+	padding-right: 2px; 
 }
 
 .buttonContainer {
-	width: 45px;
+	width: 77px;
 	height: 50px;
-	padding-left: 13px;
+	padding-left: 2px;
 }
 
 .dragged {
@@ -73,3 +111,27 @@
 	background-color: #FF9933;
 	color: white;
 }
+
+.tickListOption {
+	border-bottom: 1px #333;
+	padding: 3px 0px 3px 5px;
+	font-size: 16px;
+	letter-spacing: 1px;
+	transition: color .2s ease-out, background .5s ease-in;
+	transition-property: color, background;
+	transition-duration: 0.2s, 0.5s;
+	transition-timing-function: ease-out, ease-in;
+	transition-delay: initial, initial;
+  transition:padding .2s ease-out, background .2s ease-in;
+	-o-transition:padding .2s ease-out, background .2s ease-in;
+  -ms-transition:padding .2s ease-out, background .2s ease-in;
+  -moz-transition:padding .2s ease-out, background .2s ease-in;
+  -webkit-transition:padding .2s ease-out, background .2s ease-in;
+}
+
+.tickListOption:hover {
+	padding-left: 12px;
+	background-color: #FF9933;
+	color: white;
+}
+

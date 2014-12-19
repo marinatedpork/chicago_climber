@@ -115,3 +115,12 @@
 .routeLine p {
 	margin: 5px 0px 5px 0px;
 }
+
+
+.green {
+	color: #46B525 !important;
+}
+
+.red {
+	color: #dd1f1f !important;
+}

@@ -20,7 +20,8 @@
 <div id="createForm" class="inline-block float-left">
   <%= text_field_tag 'name', nil,  placeholder: 'tick list name', :class => "tickListInput" %>
 </div>
-<div id="createTickList" class="inline-block buttonContainer pointer">
-  <i class="fa fa-plus-circle fa-3x green float-right"></i>
-  <i class="fa fa-check-square fa-3x green float-right"></i>
+<div class="inline-block buttonContainer pointer">
+  <i id="createTickList" class="fa fa-plus-circle fa-3x green float-right"></i>
+  <i id="cancelTickList" class="fa fa-minus-square fa-3x red inline-block float-right "></i>
+  <i id="confirmTickList" class="fa fa-check-square fa-3x green inline-block float-right"></i>
 </div>
