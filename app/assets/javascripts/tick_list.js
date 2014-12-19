@@ -3,15 +3,21 @@ var configTable = function() {
 	$(".routeLine").draggable({
     helper: "clone",
     start: function(event, ui) {
-    	$(ui.helper).addClass("dragged")
+    	var children = $(ui.helper[0].children);
+    	ui.helper.addClass("dragged");
+    	$(children[1]).hide(500);
+    	$(children[3]).hide(500);
+    	$(children[4]).hide(500);
+    	$(children[5]).hide(500);
     }
   });
 
   $("#tickList").droppable({
   	drop: function(event, ui)  {
-  		var climb = ui.draggable.clone(),
-  				data  = {climb_id: climb.attr("data-id")},
-  				url   = $(this).find("ol").attr("data-url");
+  		var climb    = ui.draggable.clone(),
+  				children = $(ui.draggable.clone()[0].children),
+  				data     = {climb_id: climb.attr("data-id")},
+  				url      = $(this).find("ol").attr("data-url");
 		$(this).find("ol").append(climb);
 		$.post(url, data, function(serverResponse){});
   	}
@@ -59,8 +65,9 @@ $(document).ready(function(){
 			$("#dropDownButton").append("<span class='caret'></span>")
 			$(dropDownButton).show();
 			$(tickListForm).hide();
-			$(".fa-check-square").hide();
-			$(".fa-plus-circle").show();
+			$("#confirmTickList").hide();
+			$("#cancelTickList").hide();
+			$("#createTickList").show();
 		});
 	});
 
