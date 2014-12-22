@@ -14,12 +14,20 @@
   -webkit-box-shadow: 1px 2px 3px #666;
   box-shadow: 1px 2px 3px #666;
   border-radius: 2px;
-  /*transition: background .2s linear;*/
+  transition:background .4s ease-in;
+	-o-transition:background .4s ease-in;
+  -ms-transition:background .4s ease-in;
+  -moz-transition:background .4s ease-in;
+  -webkit-transition:background .4s ease-in;
   /*transition-delay: .3s;*/
 }
 
-#tickListContainer li {
-	list-style: none;
+#tickListContainer .routeLine {
+	transition: color .4s ease-out, background .4s ease-in;
+	transition-property: color, background;
+	transition-duration: 0.4s, 0.4s;
+	transition-timing-function: ease-out, ease-in;
+	transition-delay: initial, initial;
 }
 
 .tickList {
@@ -109,6 +117,7 @@
 }
 
 .dragged {
+	z-index: 999;
 	list-style: none;
 	background-color: #FF9933;
 	padding-left: 5px;
@@ -153,16 +162,58 @@
 }
 
 .dropZoneContainer .routeLine {
-	transition:opacity .4s ease-out;
-	-o-transition:opacity .4s ease-out;
-	-ms-transition:opacity .4s ease-out;
-	-moz-transition:opacity .4s ease-out;
-	-webkit-transition:opacity .4s ease-out;
+	transition:opacity .4s ease-out background .4s ease-in;
+	-o-transition:opacity .4s ease-out background .4s ease-in;
+	-ms-transition:opacity .4s ease-out background .4s ease-in;
+	-moz-transition:opacity .4s ease-out background .4s ease-in;
+	-webkit-transition:opacity .4s ease-out background .4s ease-in;
 	opacity: 0;
+	background-color: #0DDEFF;
+}
+
+#hoverDiv {
+	position: absolute;
+	z-index: -1;
+	width: 250px;
+	height: 300px;
+}
+
+#dropSuccess {
+	background-color: #3CBC20;
+	position: absolute;
+	z-index: -2;
+	width: 250px;
+	height: 300px;
+
+}
+
+.dropZoneContainer #hoverDiv {
+	z-index: 998
 }
 
 .dropZoneContainer #tickListContainer {
-	background: url(http://i.imgur.com/KzpC08N.png) no-repeat center center;
-	background-size: 55px 70px;
-	background-color: white;
+	background-color: #0DDEFF;
+	overflow: hidden;
+}
+
+#dropImg {
+	margin-top: 100px;
+	visibility: hidden;
+	z-index: -1;
+	transition:opacity .4s ease-out, visibility .4s ease-in;
+	-o-transition:opacity .4s ease-out, visibility .4s ease-in;
+	-ms-transition:opacity .4s ease-out, visibility .4s ease-in;
+	-moz-transition:opacity .4s ease-out, visibility .4s ease-in;
+	-webkit-transition:opacity .4s ease-out, visibility .4s ease-in;
+	opacity: 0;
+}
+
+#dropSuccessImg {
+	margin-top:  80px;
+}
+
+.dropZoneContainer #dropImg {
+	z-index: 998;
+	visibility: visible;
+	opacity: 1;
 }

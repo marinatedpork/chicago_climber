@@ -106,6 +106,7 @@ $(document).ready(function(){
 				$("#createForm").hide();
 				$("#confirmTickList").hide();
 				$("#cancelTickList").hide();
+				$("#dropImg").ClassyWiggle();
 			}
 		});
 	});
@@ -129,6 +130,7 @@ $(document).ready(function(){
 				$("#createForm").hide();
 				$("#confirmTickList").hide();
 				$("#cancelTickList").hide();
+				$("#dropImg").ClassyWiggle();
 			}
 		});
 	});

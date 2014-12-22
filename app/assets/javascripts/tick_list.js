@@ -14,14 +14,20 @@ var configTable = function() {
   });
 
   $("#tickList").droppable({
+	  tolerance: "pointer",
   	drop: function(event, ui) {
   		var climb    = ui.draggable.clone(),
-  				children = $(ui.draggable.clone()[0].children),
+					children = $(ui.draggable.clone()[0].children),
   				data     = {climb_id: climb.attr("data-id")},
   				url      = $(this).find("ol").attr("data-url");
+  				success  = $("#dropSuccess");
   		$(climb).find(".ui-draggable-handle").removeClass("ui-draggable-handle");
 			$(this).find("ol").append(climb);
 			$.post(url, data);
+			success.css({"z-index": "996"});
+			success.fadeOut(1333, function(){
+				success.css({"z-index": "-2"}).show()
+			});
   	},
   	hoverClass: "dropZoneContainer"
   });
@@ -37,7 +43,7 @@ $(document).ready(function(){
 	var submitList     = "#confirmTickList";
 	var dropDownButton = "#dropDownButton";
 	var	tickListLine   = ".tickListLine";
-	
+
 	body.on("click", createTickList, function(event){
 		$(dropDownButton).hide();
 		$(tickListForm).show();
