@@ -18,6 +18,17 @@ class TickListsController < ApplicationController
 		render nothing: true
 	end
 
+	def delete 
+		TickList.find(params[:id]).destroy
+		render nothing: true
+	end
+
+	def edit
+		tick_list = TickList.find(params[:id])
+		tick_list.update_attributes(name: tick_list_params[:name])
+		render nothing: true
+	end
+
   private
 
 	def tick_list_params

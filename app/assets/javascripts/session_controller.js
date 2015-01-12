@@ -17,7 +17,13 @@ $(document).ready(function(){
 	};
 
 	$.get('/climbs', function(serverResponse){
-		routes = serverResponse
+		routes = serverResponse;
+		var htmlString = "<ol>";
+		$.each(routes.slice(0,49),function(index, value){
+			htmlString += value
+		});
+		htmlString += "</ol>"
+		$('.searchResults').append(htmlString);
 	});
 
 	$("body").on("click", "#userLogoutNav", function(event) {

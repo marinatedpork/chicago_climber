@@ -1,18 +1,18 @@
 var routes;
+	
+var parseRoutes = function(serverResponse) {
+	var routeString  = "<ol>";
+	for (var i = 0; i < serverResponse.length; i++) {
+  	var index = parseInt(serverResponse[i]);
+  	routeString += routes[index - 1];
+		}
+	routeString += "</ol>";
+	return routeString;
+}
 
 $(document).ready(function(){
 
 	var searchBar = $('.searchBar');
-	
-	var parseRoutes = function(serverResponse) {
-		var routeString  = "<ol>";
-		for (var i = 0; i < serverResponse.length; i++) {
-    	var index = parseInt(serverResponse[i]);
-    	routeString += routes[index - 1];
- 		}
-		routeString += "</ol>";
-		return routeString;
-	}
 
 	$('.container').delegate('.searchBar', 'keyup', function(event){
 			$('#searchForm').submit();

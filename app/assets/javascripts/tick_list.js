@@ -17,7 +17,6 @@ var configTable = function() {
 	  tolerance: "pointer",
   	drop: function(event, ui) {
   		var climb    = ui.draggable.clone(),
-					children = $(ui.draggable.clone()[0].children),
   				data     = {climb_id: climb.attr("data-id")},
   				url      = $(this).find("ol").attr("data-url");
   				success  = $("#dropSuccess");
@@ -44,6 +43,48 @@ $(document).ready(function(){
 	var dropDownButton = "#dropDownButton";
 	var	tickListLine   = ".tickListLine";
 
+	var showDropDown = function() {
+		$(dropDownButton).show();
+		$(tickListForm).hide();
+		$("#confirmTickList").hide();
+		$("#cancelTickList").hide();
+		$("#createTickList").show();
+	}
+
+	var bindCreateList = function(){
+		body.on("click", submitList, function(event){
+		console.log("ber");
+			var data = $(".tickListInput").serialize(),
+					url  = $("#session_user").attr("class") + "/tick_lists";
+			$.post(url, data, function(serverResponse){
+				var name = $(tickListLine).find("input[type=text]").val();
+				$(tickListLine).find("input[type=text]").val("");
+				$(".noTicKListDropDown").remove();
+				$("#dropDownMenu").append(serverResponse[0]);
+				$("#tickListContainer").html(serverResponse[1]);
+				$("#dropDownButton").text(name);
+				$("#dropDownButton").append("<span class='caret'></span>");
+				showDropDown();
+			});
+		});
+	};
+	
+	var bindEditList = function(url){
+		body.on("click", submitList, function(event){
+			var data    = $(".tickListInput").serialize(),
+					editUrl = url + "/edit",
+					name    = $(tickListLine).find("input[type=text]").val();
+			$.post(editUrl, data, function(serverResponse){
+				$(tickListLine).find("input[type=text]").val("");
+				$("#dropDownMenu").find("span[data-url='"+url+"']").text(name);
+				showDropDown();
+				$(submitList).unbind("click");
+				bindCreateList();
+				$("#dropDownMenu").find("[data-url='"+url+"']").trigger("click");
+			});
+		});
+	};
+
 	body.on("click", createTickList, function(event){
 		$(dropDownButton).hide();
 		$(tickListForm).show();
@@ -59,26 +100,9 @@ $(document).ready(function(){
 		$(submitList).hide();
 		$("#createTickList").show();
 		$("#cancelTickList").hide();
+		$(createTickList).unbind("click");
+		bindCreateList();
 	});	
-
-	body.on("click", submitList, function(event){
-		var data = $(".tickListInput").serialize(),
-				url  = $("#session_user").attr("class") + "/tick_lists";
-		$.post(url, data, function(serverResponse){
-			var name = $(tickListLine).find("input[type=text]").val();
-			$(tickListLine).find("input[type=text]").val("");
-			$(".noTicKListDropDown").remove();
-			$("#dropDownMenu").append(serverResponse[0]);
-			$("#tickListContainer").html(serverResponse[1]);
-			$("#dropDownButton").text(name);
-			$("#dropDownButton").append("<span class='caret'></span>");
-			$(dropDownButton).show();
-			$(tickListForm).hide();
-			$("#confirmTickList").hide();
-			$("#cancelTickList").hide();
-			$("#createTickList").show();
-		});
-	});
 
 	body.on("click", ".tickListOption", function(event){
 		var url = $(event.target).attr("data-url");
@@ -87,6 +111,27 @@ $(document).ready(function(){
 		$.get(url, function(serverResponse){
 			$("#tickListContainer").html(serverResponse);
 		});
+	});
+
+	body.on("click", ".delete-list", function(event){
+		var url = $(event.target).parent().find(".tickListOption").attr("data-url") + "/delete",
+				par = $(event.target).parent();
+		$.get(url, function(){
+			par.remove();
+		})
+	});
+
+	body.on("click", ".edit-list", function(event){
+		var text = $(event.target).parent().find(".tickListOption").text();
+		var url = $(event.target).parent().find(".tickListOption").attr("data-url");
+		$(submitList).unbind("click");
+		$(dropDownButton).hide();
+		$(tickListForm).show();
+		$(submitList).show();
+		$("#createTickList").hide();
+		$("#cancelTickList").show();
+		$(tickListLine).find("input[type=text]").val(text);
+		bindEditList(url);
 	});
 
 });
