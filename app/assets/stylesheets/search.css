@@ -1,0 +1,183 @@
+
+.searchImage {
+	background: url(http://i.imgur.com/JRuAlZO.png) no-repeat 5px center;
+	background-size: contain;
+	display: inline-block;
+	width: 150px;
+	height: 150px;
+	margin-top: 12px;
+	margin-left: 20px;
+}
+
+.searchInput {
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+.searchImageWrapper {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	background: rgba(0, 203, 255, .7);
+	margin-left: 300px;
+	border-radius: 50%;
+  -moz-box-shadow: 1px 2px 3px #666;
+  -webkit-box-shadow: 1px 2px 3px #666;
+  box-shadow: 1px 2px 3px #666;
+}
+
+.searchBarHeader {
+	font-weight: bold;
+	text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 2px 0 #bbb, 0 3px 0 #b9b9b9, 0 4px 0 #aaa, 0 5px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.3), 0 2px 4px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+	font-size: 22px;
+	color: #292D30;
+}
+
+.searchButton {
+	background-color: #404040;
+	width: 45px;
+	height: 33px;
+	cursor: pointer;
+	-moz-box-shadow: 1px 1px 2px #666;
+  -webkit-box-shadow: 1px 1px 2px #666;
+  box-shadow: 1px 1px 2px #666;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+}
+
+.searchResults {
+	overflow: auto;
+	width: 730px;
+	height: 300px;
+  margin-left: 10px;
+  margin-right: 30px;
+  border-radius: 2px;
+	background-color: white;
+	opacity: .7
+  -moz-box-shadow: 1px 2px 3px #666;
+  -webkit-box-shadow: 1px 2px 3px #666;
+  box-shadow: 1px 2px 3px #666;
+  padding-left: 10px;
+}
+
+.resultsHeader {
+	width: 730px;
+	height: 30px;
+  margin-top: 10px;
+  margin-left: 10px;
+	background-color: #23A7CF;
+  -moz-box-shadow: 1px 2px 3px #666;
+  -webkit-box-shadow: 1px 2px 3px #666;
+  box-shadow: 1px 2px 3px #666;
+  -webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.resultsHeader span {
+	display: inline-block;
+	font-size: 10px;
+	height: 100%;
+	text-align: center;
+	color: white;
+	letter-spacing: 1px;
+	font-weight: bold;
+	padding-top: 10px;
+	float: left;
+	cursor: pointer;
+}
+
+.resultsHeader span:nth-child(even) {
+	background-color: #00C7E3;
+}
+
+.resultsHeader span i {
+	padding-left: 3px;
+}
+
+.routeLine p:nth-child(even) {
+	font-weight: bold;
+}
+
+#id-sort {
+	width: 30px;
+}
+
+#name-sort, .routeLine p:first-child {
+	width: 155px;
+}
+
+#category-sort, .routeLine p:nth-child(2) {
+	width: 42px;
+}
+
+#rating-sort, .routeLine p:nth-child(3) {
+	width: 57px;
+}
+#height-sort, .routeLine p:nth-child(4) {
+	width: 52px;
+}
+
+#height-sort {
+	letter-spacing: .5px;
+}
+
+#pitch-sort, .routeLine p:nth-child(5) {
+	width: 68px;
+}
+
+#pitch-sort {
+	letter-spacing: 1px;
+	font-size: 10px;
+}
+
+#location-sort, .routeLine p:nth-child(6) {
+	width: 110px;
+}
+
+#wall-sort, .routeLine p:nth-child(7) {
+	width: 170px;
+}
+
+#url-sort {
+	width: 42px;
+}
+
+.searchResults ol {
+	padding-left: 20px !important;
+}
+
+.fa-search {
+	padding-top: 8px;
+	margin-left: 13.5px; 
+	color: #C4C4C4;
+}
+
+.link-icon {
+	margin-right: 10px !important;
+}
+
+.routeLine {
+	background-color: white;
+	transition: color .2s ease-out, background .5s ease-in;
+	transition-property: color, background;
+	transition-duration: 0.2s, 0.5s;
+	transition-timing-function: ease-out, ease-in;
+	transition-delay: initial, initial;
+}
+
+.routeLine:hover {
+	background-color: #A1447B;
+}
+
+.routeLine p {
+	margin: 5px 0px 5px 0px;
+	text-align: center;	
+}
+
+.routeLine p:first-child {
+	cursor: pointer;
+}

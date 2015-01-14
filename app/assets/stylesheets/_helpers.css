@@ -1,0 +1,52 @@
+
+.box-shadow {
+	box-shadow: 1px 1px 2px #666;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.fixed {
+	position: fixed;
+}
+
+.table {
+	display: table;
+  height: 330px;
+  width: 100%;
+}
+
+.table-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.float-right {
+	float: right;
+}
+
+.float-left {
+	float: left;
+}
+
+.chevron {
+	margin-left: 2px !important;
+}
+
+.center-text {
+	text-align: center;
+}
+
+.green {
+	color: #46B525 !important;
+}
+
+.red {
+	color: #dd1f1f !important;
+}
+
+.center {
+	display: block;
+	margin: 0px auto;
+}

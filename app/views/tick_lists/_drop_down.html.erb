@@ -11,7 +11,9 @@
     <% else %>
       <% current_user.tick_lists.each do |tick_list| %>
         <li role="presentation">
-          <span class="tickListOption pointer" data-url="<%= user_tick_list_path(current_user, tick_list) %>"><%= tick_list.name %></span> <i class="fa fa-pencil float-right block edit-list"></i> <i class="fa fa-trash float-right block delete-list"></i> 
+          <span class="tickListOption pointer" data-url="<%= user_tick_list_path(current_user, tick_list) %>"><%= tick_list.name %></span> 
+          <i class="fa fa-pencil float-right block edit-list pointer"></i> 
+          <i class="fa fa-trash float-right block delete-list pointer"></i> 
         </li>
       <% end %>
     <% end %>

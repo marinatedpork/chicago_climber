@@ -19,7 +19,10 @@
   -ms-transition:background .4s ease-in;
   -moz-transition:background .4s ease-in;
   -webkit-transition:background .4s ease-in;
-  /*transition-delay: .3s;*/
+}
+
+#tickListContainer ol {
+	padding-left: 0px !important;
 }
 
 #tickListContainer .routeLine {
@@ -184,7 +187,6 @@
 	z-index: -2;
 	width: 250px;
 	height: 300px;
-
 }
 
 .dropZoneContainer #hoverDiv {
@@ -216,4 +218,44 @@
 	z-index: 998;
 	visibility: visible;
 	opacity: 1;
+}
+
+.tickListItem {
+	list-style: none;
+	padding: 5px;
+	border-bottom: 2px solid gray;
+	transition:background.4s ease-out, color.4s ease-out;
+	-o-transition:background.4s ease-out, color.4s ease-out;
+	-ms-transition:background.4s ease-out, color.4s ease-out;
+	-moz-transition:background.4s ease-out, color.4s ease-out;
+	-webkit-transition:background.4s ease-out, color.4s ease-out;
+}
+
+.tickListItem:hover {
+	background-color: #A1447B;
+}
+
+.tickListItem i {
+	margin-bottom: 10px;
+}
+
+.tickListItem p.route-name {
+	font-size: 18px;
+	letter-spacing: 1px;
+	margin-left: 20px;
+	display: block;
+}
+
+.tick-list-sub-line {
+	display: block;
+	width: 215px;
+	margin: 0px auto;
+	text-align: center;
+	letter-spacing: 1px;
+}
+
+.tick-list-sub-line span:nth-child(2){
+	margin-left: 10px;
+	margin-right: 10px;
+	font-weight: bold;	
 }

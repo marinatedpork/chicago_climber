@@ -22,7 +22,7 @@ var addUserNavBar = function(){
 };
 
 var userShowCss =	{ 
-	width: '80%',
+	width: '82.5%',
   height: '650px',
   'margin-top': '10px',
   'margin-bottom': '10%',

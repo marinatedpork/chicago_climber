@@ -18,15 +18,22 @@ class TickListsController < ApplicationController
 		render nothing: true
 	end
 
+	def delete_climb
+		tick_list = TickList.find(params[:id])
+		climb = Climb.find(params[:climb_id])
+		tick_list.climbs.delete(climb)
+		render nothing: true
+	end
+
 	def delete 
 		TickList.find(params[:id]).destroy
 		render nothing: true
 	end
 
 	def edit
-		tick_list = TickList.find(params[:id])
-		tick_list.update_attributes(name: tick_list_params[:name])
-		render nothing: true
+		@tick_list = TickList.find(params[:id])
+		@tick_list.update_attributes(name: tick_list_params[:name])
+		render partial: "show.html"
 	end
 
   private

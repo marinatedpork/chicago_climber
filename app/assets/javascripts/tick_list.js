@@ -10,6 +10,8 @@ var configTable = function() {
     	$(children[3]).hide(500);
     	$(children[4]).hide(500);
     	$(children[5]).hide(500);
+    	$(children[6]).hide(500);
+    	$(children[7]).hide(500);
     }
   });
 
@@ -18,10 +20,10 @@ var configTable = function() {
   	drop: function(event, ui) {
   		var climb    = ui.draggable.clone(),
   				data     = {climb_id: climb.attr("data-id")},
-  				url      = $(this).find("ol").attr("data-url");
+  				url      = $(this).find("ol").attr("data-url") + "/add_climb";
   				success  = $("#dropSuccess");
   		$(climb).find(".ui-draggable-handle").removeClass("ui-draggable-handle");
-			$(this).find("ol").append(climb);
+			$(this).find("ol").append(routes[climb.attr("data-id") - 1].tickListView());
 			$.post(url, data);
 			success.css({"z-index": "996"});
 			success.fadeOut(1333, function(){
@@ -30,6 +32,8 @@ var configTable = function() {
   	},
   	hoverClass: "dropZoneContainer"
   });
+
+  // $(".route-name").width(widestChild(".route-name"));
 
 };
 
@@ -53,7 +57,6 @@ $(document).ready(function(){
 
 	var bindCreateList = function(){
 		body.on("click", submitList, function(event){
-		console.log("ber");
 			var data = $(".tickListInput").serialize(),
 					url  = $("#session_user").attr("class") + "/tick_lists";
 			$.post(url, data, function(serverResponse){
@@ -77,13 +80,17 @@ $(document).ready(function(){
 			$.post(editUrl, data, function(serverResponse){
 				$(tickListLine).find("input[type=text]").val("");
 				$("#dropDownMenu").find("span[data-url='"+url+"']").text(name);
-				showDropDown();
-				$(submitList).unbind("click");
+				$("#tickListContainer").html(serverResponse);
+				$("#dropDownButton").text(name);
+				$("#dropDownButton").append("<span class='caret'></span>");
+				$("body").off("click", submitList);
 				bindCreateList();
-				$("#dropDownMenu").find("[data-url='"+url+"']").trigger("click");
+				showDropDown();
 			});
 		});
 	};
+
+	bindCreateList();
 
 	body.on("click", createTickList, function(event){
 		$(dropDownButton).hide();
@@ -118,13 +125,14 @@ $(document).ready(function(){
 				par = $(event.target).parent();
 		$.get(url, function(){
 			par.remove();
-		})
+		});
 	});
 
 	body.on("click", ".edit-list", function(event){
 		var text = $(event.target).parent().find(".tickListOption").text();
 		var url = $(event.target).parent().find(".tickListOption").attr("data-url");
-		$(submitList).unbind("click");
+		console.log(url);
+		$("body").off("click", submitList);
 		$(dropDownButton).hide();
 		$(tickListForm).show();
 		$(submitList).show();

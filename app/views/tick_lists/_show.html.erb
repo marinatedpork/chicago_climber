@@ -1,5 +1,5 @@
-<ol data-url='/users/<%= @tick_list.user.id %>/tick_lists/<%= @tick_list.id %>/add_climb'>
+<ol data-url='/users/<%= @tick_list.user.id %>/tick_lists/<%= @tick_list.id %>'>
 	<% @tick_list.climbs.each do |climb| %>
-		<%= climb.to_html.html_safe %>
+		<%= climb.to_tick_list.html_safe %>
 	<% end %> 
 </ol>
