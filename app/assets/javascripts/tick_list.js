@@ -20,7 +20,7 @@ var configTable = function() {
   	drop: function(event, ui) {
   		var climb    = ui.draggable.clone(),
   				data     = {climb_id: climb.attr("data-id")},
-  				url      = $(this).find("ol").attr("data-url") + "/add_climb";
+  				url      = $(this).find("ol").attr("data-url") + "/add_appearance";
   				success  = $("#dropSuccess");
   		$(climb).find(".ui-draggable-handle").removeClass("ui-draggable-handle");
 			$(this).find("ol").append(routes[climb.attr("data-id") - 1].tickListView());

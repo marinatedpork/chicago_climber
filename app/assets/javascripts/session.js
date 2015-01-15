@@ -22,12 +22,12 @@ var addUserNavBar = function(){
 };
 
 var userShowCss =	{ 
-	width: '82.5%',
+	width: '100%',
   height: '650px',
-  'margin-top': '10px',
+  'margin-top': '5px',
   'margin-bottom': '10%',
-  'margin-left': '10%',
-  'margin-right': '10%'
+  'margin-left': '0%',
+  'margin-right': '0%'
 };
 
 var userShowSetup = function() {

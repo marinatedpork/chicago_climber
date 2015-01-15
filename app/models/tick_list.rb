@@ -1,7 +1,8 @@
 class TickList < ActiveRecord::Base
 	include Rails.application.routes.url_helpers
 	belongs_to :user
-	has_and_belongs_to_many :climbs
+	has_many :appearances
+	has_many :climbs, through: :appearances
 
 	def to_drop_down
 		html_string = "<li role='presentation'>"

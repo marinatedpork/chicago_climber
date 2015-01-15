@@ -1,5 +1,8 @@
 class Climb < ActiveRecord::Base
-  has_and_belongs_to_many :tick_lists
+
+  has_many :appearances
+  has_many :tick_lists, through: :appearances
+
   belongs_to :state
   belongs_to :area
   belongs_to :subarea
@@ -81,19 +84,17 @@ class Climb < ActiveRecord::Base
   end
 
   def self.sort_climbs_desc(results, constraint)
-    p results[0].height > results[1].height
     locations = ["state", "wall"]
     case constraint
       when locations.include?(constraint) then results.sort {|y, x| x.send(constraint).name <=> y.send(constraint).name }.map(&:id)
       when "height" then results.sort {|y, x| (x.height).to_i <=> (y.height).to_i }.map(&:id)
       when "pitches" then results.sort {|y, x| (x.pitches).to_i <=> (y.pitches).to_i }.map(&:id)
       when "rating" then results.sort {|y, x| (x.integer_rating).to_i <=> (y.integer_rating).to_i }.map(&:id)
-      else return results.sort {|y, x| x.send(constraint) <=> y.send(constraint)}.map(&:id)
+      else return results.sort {|y, x| x.send(constraint) <=> y.send(constraint) }.map(&:id)
     end
   end
 
   def self.sort_climbs_asc(results, constraint)
-    p results[0].height > results[1].height
     locations = ["state", "wall"]
     case constraint
       when locations.include?(constraint) then results.sort {|x,y| x.send(constraint).name <=> y.send(constraint).name }.map(&:id)

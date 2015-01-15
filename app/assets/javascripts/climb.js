@@ -16,18 +16,34 @@ var Climb = function(attr) {
 	this.face = attr.face_id;
 };
 
-Climb.prototype.searchResultView = function() {
-	var needed_shit = [this.category, this.rating, this.height, this.pitches, this.state],
-			html_string = "<li data-id='"+this.id+"' class='routeLine'><p class='inline-block route-name center-text'>"+this.listName()+"</p>";
+Climb.prototype.locationString = function() {
+	var locations = [this.state, this.area, this.subarea, this.crag, this.section, this.face],
+			string = "";
+	locations.forEach(function(obj, index, locations){
+		if (index === 0) {
+			string += obj;
+		} else if (obj) {
+			string += " > " + obj;
+		} else {
+			return;
+		};
+	});
+	return string;
+};
 
+Climb.prototype.searchResultView = function() {
+	var needed_shit = [this.category, this.rating, this.height, this.pitches],
+			html_string = "<li data-id='"+this.id+"' class='routeLine'><p class='inline-block route-name center-text'>"+this.listName()+"</p>",
+			tooltip = this.locationString();
+			console.log(tooltip);
 	needed_shit.forEach(function(obj, index, needed_shit){
 		if (obj) {
-			html_string += "<p class='inline-block'>"+obj+"</p>";
+			html_string += "<p class='inline-block location-tip' >"+obj+"</p>";
 		} else {
 			html_string += "<p class='inline-block'>--</p>";
 		}
 	});
-	return html_string += "<p class='inline-block'>"+this.listWall()+"</p><p class='inline-block float-right link-icon'><a href='"+this.url+"', target='_blank'><i class='fa fa-external-link'></i></a></p></li>";
+	return html_string += "<p class='inline-block location-tip' title='"+tooltip+"' data-toggle='tooltip' data-placement='bottom'>"+this.state+"</p><p class='inline-block'>"+this.listWall()+"</p><p class='inline-block float-right link-icon'><a href='"+this.url+"', target='_blank'><i class='fa fa-external-link'></i></a></p></li>";
 };
 
 Climb.prototype.tickListView = function() {
@@ -46,12 +62,11 @@ Climb.prototype.listName = function() {
 };
 
 Climb.prototype.listWall = function() {
-	if (this.name.length > 17) {
+	if (this.wall.length > 17) {
 		return this.wall.slice(0, 15) + "..."
 	} else {
-		return this.name;
+		return this.wall;
 	};
-
 };
 
 $(document).ready(function(){
