@@ -14,9 +14,14 @@
 </head>
 <body>
 
-	<div class="fullPage"> 
+  <div id="context-menu">
+    <a class="filter-keep"href="#"></a>
+    <a class="filter-keep-greater-than"href="#"></a>
+    <a class="filter-keep-less-than"href="#"></a>
+    <a class="filter-remove"href="#"></a>
+    <a class="filter-remove-greater-than"href="#"></a>
+    <a class="filter-remove-less-than"href="#"></a>
   </div>
-
 	<% if current_user %>
 		<div id="session_user" class="users/<%=current_user.id%>"></div>
 	<% end %>

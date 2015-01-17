@@ -42,8 +42,11 @@ require_relative '../lib/tasks/tagger.rb'
 
 # FOR SEEDING CONTENT STRING
 
-	attrs = Climb.all.map(&:to_info)
-	ContentString.first.update_attributes(content: attrs.to_json)
+	ContentString.create!(content: ContentString.compile_to_array)
 
+# FOR TEMP JSON
 
-
+	# attrs = Climb.all.sample(5000).map(&:to_info)
+	# File.open("public/temp_climbs.json","w") do |f|
+	#   f.write(attrs)
+	# end

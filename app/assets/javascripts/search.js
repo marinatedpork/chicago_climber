@@ -1,27 +1,19 @@
-var routes = [];
-var lastQuery;
+var routes = {};
+var resultIds;
 	
 var parseRoutes = function(serverResponse) {
 	var routeString  = "<ol>";
 	for (var i = 0; i < serverResponse.length; i++) {
-  	var index = parseInt(serverResponse[i]);
-  	routeString += routes[index - 1].searchResultView();
+  	routeString += routes[serverResponse[i]].searchResultView($("#location-sort").attr("data-sort"));
 		}
 	routeString += "</ol>";
 	return routeString;
-};
-
-var addToolTips = function(results){
-	results.forEach(function(obj, index, results){
-		routes[obj].setLocationToolTip();
-	});
 };
 
 $(document).ready(function(){
 
 	var searchBar = $('.searchBar');
 	var sort_navs = ["#name-sort", "#category-sort", "#rating-sort", "#height-sort", "#pitch-sort", "#location-sort", "#wall-sort"];
-	$("i.fa-caret-up").hide();
 	$('.container').delegate('.searchBar', 'keyup', function(event){
 			$('#searchForm').submit();
 	});
@@ -33,10 +25,10 @@ $(document).ready(function(){
 				url = '/search',
 				appendArea = $('.searchResults');
 		$.post(url, data, function(serverResponse){
+			resultIds = serverResponse;
 			var parsedResults = parseRoutes(serverResponse);
 			appendArea.html(parsedResults);
 			configTable();
-			lastQuery = $(".searchBar").val();
 			$('[data-toggle="tooltip"]').tooltip({
 				container: 'body'
 			});
@@ -45,26 +37,34 @@ $(document).ready(function(){
 
 	$.each(sort_navs, function(index, obj){
 		$('body').on('click', obj, function(event){
-			var appendArea = $('.searchResults'),
-					data = { 
-						search: lastQuery,
-						sort_type: $(obj).attr("data-sort"),
-						direction: $(obj).attr("class")
-					};
+			var climbs = climbSort(resultIds, $(obj).attr("data-sort"), $(obj).attr("class"));
+			var sortedRoutes = mapHTML(climbs, $(obj).attr("data-sort"));
+			$('.searchResults').html(sortedRoutes);
 			$(obj).find("i").toggleClass('fa-caret-up fa-caret-down');
 			$(obj).toggleClass('up down');
-			$.post('/search', data, function(serverResponse){
-				var parsedResults = parseRoutes(serverResponse);
-				appendArea.html(parsedResults);
-				configTable();
-				$('[data-toggle="tooltip"]').tooltip({
-				container: 'body'
+			$('[data-toggle="tooltip"]').tooltip({
+					container: 'body'
 			});
-			});
+			configTable();
 		});
-	})
+	});
 
-	
+	$('body').on('click', '#location-drop-down', function(event){
+		$("#location-subsort-menu").slideToggle(150);
+	});
 
+	$('body').on('click', ".location-subsort", function(event){
+		var val = $(event.target).text();
+		$("#location-sort-text").text(val);
+		$("#location-sort").attr("data-sort", val);
+		var sortedRoutes = mapHTML(climbSort(resultIds, $("#location-sort").attr("data-sort"), $("#location-sort").attr("class")), val);
+		$('.searchResults').html(sortedRoutes);
+		$("#location-sort").find("i").toggleClass('fa-caret-up fa-caret-down');
+		$("#location-sort").toggleClass('up down');
+		$('[data-toggle="tooltip"]').tooltip({
+				container: 'body'
+		});
+		configTable();
+	});
 
 });

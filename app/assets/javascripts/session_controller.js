@@ -12,13 +12,14 @@ $(document).ready(function(){
 			$("#createForm").hide();
 			$("#confirmTickList").hide();
 			$("#cancelTickList").hide();
+			$("#location-subsort-menu").hide();
 			$("#dropImg").ClassyWiggle();
 		});
 	};
 
 	$.get('/climbs', function(serverResponse){
 		$.each(serverResponse,function(index, value){
-			routes.push(new Climb(value));
+			routes[value.id] = new Climb(value);
 		});
 	});
 

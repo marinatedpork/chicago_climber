@@ -1,0 +1,30 @@
+#context-menu {
+	display: none;
+	position: absolute;
+	background-color: white;
+	z-index: -2;
+	width: 180px;
+	border: 1px solid #e5e5e5;
+	border-radius: 2px; 
+	box-shadow: 0px 1px 3px 1px #d1d1d1;
+}
+#context-menu a {
+	display: block;
+	margin: 0px auto;
+	font-size: 12px;
+	margin-top: 5px;
+	margin-bottom: 5px; 
+	text-decoration: none;
+	text-align: center;
+	color: #3B3B3B;
+	background-color: white;
+	transition: color .2s ease-out, background .2s ease-in;
+	transition-property: color, background;
+	transition-duration: 0.2s, 0.2s;
+	transition-timing-function: ease-out, ease-in;
+	transition-delay: initial, initial;
+} 
+
+#context-menu a:hover {
+	background-color: #e5e5e5;
+}

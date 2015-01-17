@@ -83,33 +83,5 @@ class Climb < ActiveRecord::Base
   	return query.results.map(&:id)
   end
 
-  def self.sort_climbs_desc(results, constraint)
-    locations = ["state", "wall"]
-    case constraint
-      when locations.include?(constraint) then results.sort {|y, x| x.send(constraint).name <=> y.send(constraint).name }.map(&:id)
-      when "height" then results.sort {|y, x| (x.height).to_i <=> (y.height).to_i }.map(&:id)
-      when "pitches" then results.sort {|y, x| (x.pitches).to_i <=> (y.pitches).to_i }.map(&:id)
-      when "rating" then results.sort {|y, x| (x.integer_rating).to_i <=> (y.integer_rating).to_i }.map(&:id)
-      else return results.sort {|y, x| x.send(constraint) <=> y.send(constraint) }.map(&:id)
-    end
-  end
-
-  def self.sort_climbs_asc(results, constraint)
-    locations = ["state", "wall"]
-    case constraint
-      when locations.include?(constraint) then results.sort {|x,y| x.send(constraint).name <=> y.send(constraint).name }.map(&:id)
-      when "height" then results.sort {|x,y| (x.height).to_i <=> (y.height).to_i }.map(&:id)
-      when "pitches" then results.sort {|x,y| (x.pitches).to_i <=> (y.pitches).to_i }.map(&:id)
-      when "rating" then results.sort {|x,y| (x.integer_rating).to_i <=> (y.integer_rating).to_i }.map(&:id)
-      else return results.sort {|x,y| x.send(constraint) <=> y.send(constraint)}.map(&:id)
-    end
-  end
-
-  def self.sorted_query(string, constraint, direction)
-    query = self.search do
-      fulltext string
-    end
-    direction == "up" ? sort_climbs_desc(query.results, constraint) : sort_climbs_asc(query.results, constraint)
-  end
-
 end
+

@@ -106,6 +106,7 @@ $(document).ready(function(){
 				$("#createForm").hide();
 				$("#confirmTickList").hide();
 				$("#cancelTickList").hide();
+				$("#location-subsort-menu").hide();
 				$("#dropImg").ClassyWiggle();
 			}
 		});
@@ -130,11 +131,11 @@ $(document).ready(function(){
 				$("#createForm").hide();
 				$("#confirmTickList").hide();
 				$("#cancelTickList").hide();
+				$("#location-subsort-menu").hide();
 				$("#dropImg").ClassyWiggle();
 			}
 		});
 	});
-
   $('.submitButtonDiv').on('click', function(event){
 			$('form:visible').submit();
   });

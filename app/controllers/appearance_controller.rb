@@ -13,6 +13,6 @@ class AppearanceController < ApplicationController
   private
 
 	def appearance_params
-		params.permit(:climb_id)
+		params.permit(:user_id, :tick_list_id, :climb_id)
 	end
 end

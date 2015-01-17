@@ -23,7 +23,7 @@ var configTable = function() {
   				url      = $(this).find("ol").attr("data-url") + "/add_appearance";
   				success  = $("#dropSuccess");
   		$(climb).find(".ui-draggable-handle").removeClass("ui-draggable-handle");
-			$(this).find("ol").append(routes[climb.attr("data-id") - 1].tickListView());
+			$(this).find("ol").append(routes[climb.attr("data-id")].tickListView());
 			$.post(url, data);
 			success.css({"z-index": "996"});
 			success.fadeOut(1333, function(){
@@ -32,8 +32,6 @@ var configTable = function() {
   	},
   	hoverClass: "dropZoneContainer"
   });
-
-  // $(".route-name").width(widestChild(".route-name"));
 
 };
 
@@ -143,3 +141,4 @@ $(document).ready(function(){
 	});
 
 });
+
